@@ -1,0 +1,74 @@
+.NewPostBox{
+    width: 100%;
+    
+    background-color: #fff;
+    border-radius:10px;
+    border: 1px solid rgb(216, 216, 216);
+    
+}
+.new__post__top{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.new__post__user__avatar{
+    width: 55px;
+    height:55px;
+    background-color:#999;
+    border-radius:50%;
+}
+.new__post__user__avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: inherit;
+}
+.form{
+    width: 90%;
+    height:45px;
+    border: 1px solid #999;
+    border-radius:65px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.form span{
+    font-weight: 600;
+    color: #999;
+}
+.form:hover{
+    background-color: rgba(153, 153, 153, 0.294);
+}
+.new_post_box_controls{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+}
+.new_post_box_controls button{
+    flex: 1;
+    height:45px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    outline:0;
+    cursor: pointer;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+.new_post_box_controls button:hover{
+    background-color:#fafafa;
+    border-radius: 10px;
+}
+.new_post_box_controls button svg{
+    margin-right: 5px;
+}

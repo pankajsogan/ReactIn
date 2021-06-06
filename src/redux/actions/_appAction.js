@@ -1,0 +1,14 @@
+export const setUser = (user)=>({
+    type:"SET_USER",
+    user
+})
+
+export const setDrop = (drop)=>({
+    type:"SET_DROP",
+    drop
+})
+
+export const setModal = (modal)=>({
+    type:"SET_MODAL",
+    modal
+})

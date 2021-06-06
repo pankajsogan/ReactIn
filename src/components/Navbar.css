@@ -1,0 +1,228 @@
+.header__main{
+    width: 100%;
+    padding-left: 15px;
+    padding-right:15px;
+    border-bottom: 1px solid #999;
+    background-color: #fff;
+    position:sticky;
+    top: 0;
+    z-index: 99;
+}
+.header__wrapper{
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    height:53px;
+}
+.header__search{
+    flex: 1;
+   
+    height:35px;
+    margin-left:10px ;
+    display: flex;
+    align-items: center;
+}
+.header__search__wraper{
+    display: flex;
+    align-items: center;
+    width: 55%;
+    height:100%;
+    background-color:#eef3f8;
+    padding-left: 10px;
+}
+
+.header__search__wraper input{
+    width: 100%;
+    height:90%;
+    background-color:transparent;
+    border: 0;
+    outline:0;
+}
+.nav__main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.nav__main a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    margin-right: 25px;
+    font-size: 12px;
+    color: #999;
+    text-decoration: none;
+}
+
+.nav__main a:hover{
+    color: #000 !important;
+}
+.nav__main > a svg:hover{
+    fill: #000 !important;
+}
+.nav__main a svg{
+    fill: #ccc;
+}
+
+.active__link{
+    color: #000 !important;
+    position: relative;
+   
+}
+.active__link svg{
+    fill: #000 !important;
+
+}
+.active__link::after{
+    content:"";
+    position: absolute;
+    width: 45px;
+    bottom:-8px;
+    background-color: #000;
+    height:3px;
+}
+.brand__logo{
+    display: flex;
+    align-items: center;
+}
+.brand__logo svg{
+    fill: #0a66c2 !important;
+}
+.nav__avatar{
+    width: 80px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+.avatar__nav{
+    width: 25px;
+    height:25px;
+    border-radius:50%;
+    
+}
+.avatar__nav img{
+    width: 100%;
+    object-fit: cover;
+    height:100%;
+    border-radius: inherit;
+}
+.nav__avatar span{
+    font-size: 12px;
+    display:flex;
+    align-items: center;
+}
+.navbar__dropdown{
+    position:absolute;
+    
+    right: 25px;
+    bottom: -415px;
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+}
+.dropdown__header{
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #999;
+}
+.drop__user__profile{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.user__drop__avatar{
+    width: 45px;
+    
+    height: 45px;
+    background-color: #999;
+    margin: 15px;
+    border-radius: 50%;
+}
+.user__drop__avatar  img{
+    width: 100%;
+    object-fit: cover;
+    height:100%;
+    border-radius: inherit;
+}
+.user__drop__textual{
+    display: flex;
+    flex: 1;
+    align-items:flex-start;
+    justify-content:center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.user__drop__textual h3{
+    margin-bottom: 10px;
+    line-height:0px;
+}
+.header__top__button{
+    width: 98%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+
+}
+.header__top__button button{
+    width: 100%;
+    height:25px;
+    border-radius: 65px;
+    font-weight: 600;
+    border: 2px solid rgb(29, 108, 255);
+    outline:0;
+    background-color: transparent;
+    color: #0a66c2;
+    cursor: pointer;
+
+}
+.header__top__button button:hover{
+    background-color:rgba(80, 143, 238, 0.322);
+}
+.dropdown__body{
+    width: 98%;
+    margin: 0 auto;
+    
+}
+.account,.manage{
+    width: 100%;
+    list-style:none;
+    padding:0;
+}
+.account >  li:nth-child(1),.manage >  li:nth-child(1){
+    font-weight: 600;
+    padding-left: 5px;
+}
+.sublist{
+    padding:0;
+    list-style: none;
+    padding-left: 5px;
+}
+.sublist li{
+    margin-top: 10px;
+    color: rgb(83, 83, 83);
+    font-size: 14px;
+}
+.dropdown__logout{
+    width: 100%;
+    height: 35px;
+}
+.dropdown__logout button{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    background-color:transparent;
+    border: 0;
+    font-size: 16px;
+    color: #999;
+    font-weight: 600;
+}

@@ -1,0 +1,178 @@
+.newPostModal{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:#26262675;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+    overflow:hidden;
+}
+.new__post__popup{
+    width: 35%;
+    background-color:#fff;
+    margin-top: 35px;
+    border-radius:10px;
+    padding-bottom: 5px;
+    overflow: hidden;
+}
+.new__post__popup__header{
+    width: 100%;
+    height:45px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #999;
+    justify-content:space-between;
+    
+}
+.new__post__popup__header button{
+    background-color:transparent;
+    border: 0;
+    outline:0;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.new__post__popup__header h3{
+    font-weight: 500;
+    margin-left: 10px;
+}
+.post__modal__body{
+    padding:12px;
+}
+.new__post_user__detail{
+    display: flex;
+    align-items:flex-start;
+}
+.new__post__user__access{
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+.new__post__user__access h3{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+.access__select{
+    border-radius: 16px!important;
+    padding: 5px 12px!important;
+    align-self: flex-start;
+    display: flex;
+    background-color:#00000000;
+    box-shadow: inset 0 0 0 1px #00000099;
+    margin-top: 5px;
+}
+.post__text__data{
+    width: 100%;
+   padding-bottom: 25px;
+    cursor:text;
+    padding-top: 15px;
+    color: rgb(83, 83, 83);
+    margin-top: 15px;
+    
+}
+.post__text__data p{
+   
+    outline:0;
+}
+.post__hashtag{
+    width: 100%;
+    height:35px;
+}
+.post__hashtag button{
+   
+    height:100%;
+    color: #0a66c2;
+    font-weight: 600;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    display: flex;
+    align-items:center;
+    justify-content:flex-start;
+    font-size: 16px;
+    cursor: pointer;
+}
+.post__hashtag button:hover{
+    background-color:#73b9ff6c;
+    border-radius: 5px;
+}
+.new__post__modal__footer{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    height:55px;
+    margin: 0 auto;
+   
+}
+
+.new__post__controls{
+    display: flex;
+    flex: 1;
+}
+.new__post__controls form{
+    width: 45px;
+    height:45px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.editablePost{
+    width: 100%;
+    height: 100%;
+}.editablePost img{
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+}
+.new__post__controls form > input{
+    display: none;
+}
+.new__post__controls button{
+    width: 45px;
+    background-color: transparent;
+    border: 0;
+    outline:0;
+    cursor: pointer;
+    border-radius: 50%;
+    height:45px;
+    transition: all .2s ease-in;
+}
+.new__post__add__controls{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    flex: .5;
+
+}
+.new__post__add__controls button{
+    flex: 1;
+    background-color: transparent;
+    border: 0;
+    outline:0;
+    cursor: pointer;
+    border-radius:65px;
+    transition: all .3s ease-in-out;
+    font-weight: 600;
+    color:#999;
+    height:35px;
+}
+.new__post__add__controls button:nth-child(2){
+    background-color:#94949450;
+}
+.new__post__add__controls button:hover{
+    background-color:#94949450;
+}
+.new__post__controls button:hover{
+    background-color:#94949450;
+}

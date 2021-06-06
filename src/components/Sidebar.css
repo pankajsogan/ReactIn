@@ -1,0 +1,11 @@
+.sidebar{
+    width: 100%;
+    grid-area: sidebar;
+    margin: 0;
+}
+
+@media screen and (max-width:1320px){
+    .sidebar{
+      display:none;
+    }
+  }

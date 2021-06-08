@@ -1,7 +1,8 @@
 const intialState = {
     user:null,
     drop:false,
-    modal:false
+    modal:false,
+    activePage:"home"
 }
 
 const appReducer = (state=intialState,action)=>{
@@ -13,13 +14,17 @@ switch(action.type){
 
         }
 
+        case "SET_ACTIVE_PAGE":
+            return{
+                ...state,
+                activePage: action.activePage,
+            }
+
         case "SET_MODAL":
         return{
             ...state,
             modal: action.modal,
-
         }
-
         case "SET_DROP":
         return{
             ...state,

@@ -9,10 +9,18 @@ import NetworkIcon from "../assets/Network";
 import { setUser,setDrop } from '../redux/actions/_appAction';
 import "./Navbar.css"
 import SearchIcon from '@material-ui/icons/Search';
+import { Link, useHistory } from 'react-router-dom';
 
 
 function DropDown ({props}){
     console.log(props);
+
+
+    const history = useHistory();
+
+    const handleViewProfile = ()=>{
+        history.push('/sumit-1234');
+    }
     return (
         <div className="navbar__dropdown">
       <div className="dropdown__header">
@@ -26,7 +34,7 @@ function DropDown ({props}){
               </div>
           </div>
           <div className="header__top__button">
-              <button>View Profile</button>
+              <button onClick={handleViewProfile}>View Profile</button>
           </div>
       </div>
       <div className="dropdown__body">
@@ -63,9 +71,9 @@ function Navbar(props) {
     return (
         <div className="header__main">
             <div className="header__wrapper">
-                <h1 className="brand__logo">
+                <Link to="/feed"><h1 className="brand__logo">
                     <Logo/>
-                </h1>
+                </h1></Link>
                 <div className="header__search">
                        <div className="header__search__wraper">
                        <SearchIcon/>
@@ -73,21 +81,21 @@ function Navbar(props) {
                        </div>
                 </div>
                 <div className="nav__main">
-                    <a href="/" className="active__link">
+                    <Link to="/feed" className={props.activePage==="home" && "active__link"}>
                         <HomeIcon/>
-                        Home</a>
-                    <a href="">
+                        Home</Link>
+                    <Link to="/feed" className={props.activePage==="network" && "active__link"}>
                         <NetworkIcon/>
-                        My Network</a>
-                    <a href="">
+                        My Network</Link>
+                    <Link to="/feed" className={props.activePage==="jobs" && "active__link"}>
                         <JobIcon/>
-                        Jobs</a>
-                    <a href="">
+                        Jobs</Link>
+                    <Link to="/feed" className={props.activePage==="messaging" && "active__link"}>
                         <MessageIcon/>
-                        Messaging</a>
-                    <a href="">
+                        Messaging</Link>
+                    <Link to="/feed" className={props.activePage==="notification" && "active__link"}>
                         <BellIcon/>
-                        Notifications</a>
+                        Notifications</Link>
                     <div className="nav__avatar" onClick={()=>props.setDrop(!props.drop)}>
                         <div className="avatar__nav">
                             <img src={props.user && props.user.photo} alt="user__avatar" />
@@ -108,7 +116,8 @@ function Navbar(props) {
 
 const mapStateToProps = (state)=>({
     user: state.appReducer.user,
-    drop:state.appReducer.drop
+    drop:state.appReducer.drop,
+    activePage:state.appReducer.activePage
 })
 
 const mapDispatchToProps = (dispatch)=>({

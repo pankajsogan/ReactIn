@@ -9,6 +9,9 @@ body {
   user-select: none;
 }
 
+body a:visited{
+  color: #000;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

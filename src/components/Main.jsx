@@ -3,11 +3,18 @@ import { connect } from 'react-redux';
 import { setModal } from '../redux/actions/_appAction';
 import "./Main.css";
 import NewPostBox from './NewPostBox';
+import Post from './Post';
 
 function Main() {
     return (
         <div className="main">
             <NewPostBox/>
+            <div className="user__posts">
+                <Post/>
+                <Post/>
+                <Post/>
+                <Post/>
+            </div>
         </div>
     )
 }

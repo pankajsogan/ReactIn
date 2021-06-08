@@ -1,7 +1,6 @@
 .header__main{
     width: 100%;
-    padding-left: 15px;
-    padding-right:15px;
+    
     border-bottom: 1px solid #999;
     background-color: #fff;
     position:sticky;
@@ -63,7 +62,7 @@
     fill: #000 !important;
 }
 .nav__main a svg{
-    fill: #ccc;
+    fill: #00000099;
 }
 
 .active__link{

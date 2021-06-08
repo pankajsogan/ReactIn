@@ -1,7 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import image from "../assets/logo.png";
+import { setActivePage } from "../redux/actions/_appAction";
 
-function Landing() {
+function Landing(props) {
+
+        React.useEffect(() =>{
+                props.setActivePage("landing");
+             },[])
   return (
     <div className="landing__page">
       <nav aria-label="Landing__primary" className="landing__nav">
@@ -56,4 +62,9 @@ function Landing() {
   );
 }
 
-export default Landing;
+
+const mapDispatchToProps = (dispatch)=>({
+        setActivePage:(activePage)=>(dispatch(setActivePage(activePage)))
+    })
+
+export default connect(null,mapDispatchToProps)(Landing);

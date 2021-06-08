@@ -5,8 +5,13 @@ import Navbar from '../components/Navbar'
 import NewPostModal from '../components/NewPostModal'
 import Sidebar from '../components/Sidebar'
 import Widgets from '../components/Widgets'
+import { setActivePage } from '../redux/actions/_appAction'
 
 function Feed(props) {
+
+    React.useEffect(() =>{
+            props.setActivePage("home");
+    },[])
     return (
         <div className="feed__page">
            <Navbar/>
@@ -24,4 +29,8 @@ function Feed(props) {
 const mapStateToProps = (state)=>({
     modal:state.appReducer.modal
 })
-export default connect(mapStateToProps,null)(Feed)
+
+const mapDispatchToProps = (dispatch)=>({
+    setActivePage:(activePage)=>(dispatch(setActivePage(activePage)))
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Feed)

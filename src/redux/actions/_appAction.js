@@ -12,3 +12,8 @@ export const setModal = (modal)=>({
     type:"SET_MODAL",
     modal
 })
+
+export const setActivePage = (activePage)=>({
+    type:"SET_ACTIVE_PAGE",
+    activePage
+})

@@ -11,7 +11,9 @@ function Feed(props) {
 
     React.useEffect(() =>{
             props.setActivePage("home");
-    },[])
+    },
+    // eslint-disable-next-line
+    [])
     return (
         <div className="feed__page">
            <Navbar/>

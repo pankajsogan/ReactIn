@@ -29,7 +29,9 @@ function App(props) {
       
       props.setUser(user);
     })
-},[])
+},
+// eslint-disable-next-line
+[])
 
   return (
     <Router>

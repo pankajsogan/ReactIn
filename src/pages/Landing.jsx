@@ -7,7 +7,8 @@ function Landing(props) {
 
         React.useEffect(() =>{
                 props.setActivePage("landing");
-             },[])
+             },// eslint-disable-next-lines
+[props])
   return (
     <div className="landing__page">
       <nav aria-label="Landing__primary" className="landing__nav">
@@ -50,7 +51,7 @@ function Landing(props) {
                              <div className="auth__divider"><span></span>or<span></span></div>
                              <div className="form__google__auth">
                                      <div className="btn__google__login">
-                                     <img src="https://img.icons8.com/fluent/48/000000/google-logo.png"/>
+                                     <img src="https://img.icons8.com/fluent/48/000000/google-logo.png" alt="Google__logo"/>
                                      <span>Sign in with Google</span>
                                      </div>
                              </div>

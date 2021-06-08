@@ -66,8 +66,6 @@ function DropDown ({props}){
 }
 
 function Navbar(props) {
-
-    const [isDrop,setDrop] = React.useState(false);
     return (
         <div className="header__main">
             <div className="header__wrapper">

@@ -1,8 +1,6 @@
 import React from 'react';
 import "./FeedCardProfile.css";
-import axios from "axios";
 import { connect } from 'react-redux';
-import { setUser } from '../redux/actions/_appAction';
 import {Link} from 'react-router-dom'
 
 function FeedProfileCard(props) {

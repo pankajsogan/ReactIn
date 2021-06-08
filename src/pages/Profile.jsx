@@ -13,8 +13,8 @@ function QuestionIcon(){
 
 function EditProfile(){
    return <div className="edit__profile__panel">
-      <span><a href="#">Edit public profile & URL</a><QuestionIcon/></span>
-      <span><a href="#">Add prifile in another language</a><QuestionIcon/></span>
+      <span><a href="/">Edit public profile & URL</a><QuestionIcon/></span>
+      <span><a href="/">Add prifile in another language</a><QuestionIcon/></span>
    </div>
 }
 
@@ -58,7 +58,9 @@ function Profile(props) {
 
    React.useEffect(() =>{
       props.setActivePage("profile");
-   },[])
+   },
+   // eslint-disable-next-line
+   [])
    return (
       <div>
           <Navbar/>
@@ -88,11 +90,11 @@ function Profile(props) {
                                  <p>Self Taught Web Developer</p>
                                 </div>
                                  <span className="talks__about">Talks about #webdesign #react #webdeveloper and #webdevelopment</span>
-                                 <div className="user__city">Bengaluru,Karnatka,India <a href="#">Contact info</a></div>
+                                 <div className="user__city">Bengaluru,Karnatka,India <a href="/">Contact info</a></div>
 
                                  <div className="user__foloowers__following">
-                                    <span><a href="#">209 followers</a></span>
-                                    <span><a href="#">211 connections</a></span>
+                                    <span><a href="/">209 followers</a></span>
+                                    <span><a href="/">211 connections</a></span>
                                  </div>
 
                                  <div className="profile__controls">

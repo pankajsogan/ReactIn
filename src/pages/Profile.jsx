@@ -20,8 +20,8 @@ function EditProfile(){
 
 function DashBoardCard({title,subtitle}){
    return <div className="dashboard__card">
-      <span>{title}</span>
-      <span>{subtitle}</span>
+      <span className="card__title">{title}</span>
+      <span className="card__subtitle">{subtitle}</span>
    </div>
 }
 
@@ -87,7 +87,7 @@ function Profile(props) {
                               <div className="profile__body__left__top">
                                 <div className="user__info">
                                 <h3>{props.user && props.user.name}</h3>
-                                 <p>Self Taught Web Developer</p>
+                                 <p>{props.user && props.user.position}</p>
                                 </div>
                                  <span className="talks__about">Talks about #webdesign #react #webdeveloper and #webdevelopment</span>
                                  <div className="user__city">Bengaluru,Karnatka,India <a href="/">Contact info</a></div>

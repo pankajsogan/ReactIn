@@ -499,6 +499,13 @@ color: #00000099;
   padding-top: 12px;
   padding-right: 12px;
   gap:10px;
+  cursor: pointer;
+}
+.dashboard__card:hover .card__title{
+  text-decoration: underline;
+}
+.dashboard__card:hover .card__subtitle{
+  text-decoration: underline;
 }
 .dashboard__card > span:nth-child(1){
   color: #0073b1;
@@ -535,8 +542,14 @@ color: #00000099;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.dashbaord__card__big:hover{
+/* .dashbaord__card__big:hover{
   background-color: #acacac2a;
+} */
+.dashbaord__card__big:hover h4{
+  text-decoration: underline;
+}
+.dashbaord__card__big:hover h5{
+  text-decoration: underline;
 }
 .dashbaord__card__big:nth-child(1){
   border-top-left-radius: 10px;

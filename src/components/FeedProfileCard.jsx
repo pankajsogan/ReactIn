@@ -2,6 +2,7 @@ import React from 'react';
 import "./FeedCardProfile.css";
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
+import BookMarkIcon from '../assets/BookMarkIcon';
 
 function FeedProfileCard(props) {
     
@@ -22,6 +23,10 @@ function FeedProfileCard(props) {
               <div className="profile__views">
                   <span>Who viewed your profile <strong>20</strong></span>
                   <span>Who viewed your Video <strong>120</strong></span>
+              </div>
+
+              <div className="profile_card__footer">
+                  <span><BookMarkIcon/> My items</span>
               </div>
         </div>
         </Link>

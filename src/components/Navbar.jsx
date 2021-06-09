@@ -37,7 +37,7 @@ function DropDown ({props}){
               </div>
               <div className="user__drop__textual">
                   <h3>{props.user && props.user.name}</h3>
-                  <p>{props.user && props.user.position}</p>
+                  <p>{props.user && props.user.jobtitle}</p>
               </div>
           </div>
           <div className="header__top__button">

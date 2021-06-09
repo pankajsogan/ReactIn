@@ -16,7 +16,7 @@ const location = useLocation();
             props.setActivePage("home");
             const getUser = async ()=>{
                 try{
-                        const r = await axios.get(`http://localhost:5000/auth/user`,
+                        const r = await axios.get(`https://enigmatic-dusk-99502.herokuapp.com/auth/user`,
                         {headers:{
                           "Authorization":"Bearer " +Cookies.get("AUTH_TOKEN"),
                           "Content-Type":"application/json"

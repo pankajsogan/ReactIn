@@ -15,7 +15,7 @@ function SignUp() {
           console.log(response);
       }
 
-      const {name,imageUrl,email} = response.profileObj;
+      // const {name,imageUrl,email} = response.profileObj;
 
       // setFullName(name);
       // setAvatar(imageUrl);

@@ -2,7 +2,8 @@ const intialState = {
     user:null,
     drop:false,
     modal:false,
-    activePage:"home"
+    activePage:"home",
+    isLogined:false
 }
 
 const appReducer = (state=intialState,action)=>{
@@ -11,6 +12,13 @@ switch(action.type){
         return{
             ...state,
             user: action.user,
+
+        }
+
+        case "SET_LOGIN":
+        return{
+            ...state,
+            isLogined: action.login,
 
         }
 

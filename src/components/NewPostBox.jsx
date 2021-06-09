@@ -12,7 +12,7 @@ function NewPostBox(props) {
         <div className="NewPostBox">
             <div className="new__post__top">
                 <div className="new__post__user__avatar">
-                    <img src={props.user && props.user.photo} alt="user__avatar"/>
+                    <img src={props.user && props.user.avatar} alt="user__avatar"/>
                 </div>
                 <div className="form" onClick={()=>props.setModal(!props.modal)}>
                    <span>Start a Post</span>

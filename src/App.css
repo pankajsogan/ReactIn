@@ -719,6 +719,263 @@ font-size: 16px;
   text-decoration: none;
   font-weight: 500;
 }
+
+
+/**onboarding**/
+.onboarding{
+  width: 100%;
+  height:100vh;
+  background-color: #fff;
+}
+.onboardingNav{
+  width: 90%;
+  height:55px;
+  display:flex;
+  align-items:center;
+  margin:0 auto;
+}
+.onboardingNav a svg{
+  fill: #0359b6;
+}
+.onboarding__body{
+  width: 75%;
+  margin: 25px auto;
+}
+.onboarding__header{
+  display: flex;
+  width: 55%;
+  flex-direction:column;
+  align-items: center;
+  margin: 0 auto;
+}
+.jobtitle__header{
+  display: flex;
+  width: 60%;
+  flex-direction:column;
+  align-items: center;
+  margin: 0 auto;
+}
+.jobtitle__header h1{
+  font-size: 30px;
+  font-weight: 500;
+  line-height:1.4;
+  text-align: center;
+}
+.onboarding__header h1,h2{
+  margin: 0 !important;
+}
+.onboarding__header h1{
+  font-size: 30px;
+  font-weight: 500;
+  line-height:1.4;
+}
+.onboarding__header h2{
+  color: #999;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400;
+}
+.onboarding__section{
+  width: 45%;
+  margin: 25px auto;
+}
+.jobtitle__form__section{
+ width: 45%;
+  margin: 25px auto;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+}
+.jobtitle__form__field{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  position: relative;
+}
+.jobtitle__form__field label{
+  color: #00000099;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.jobtitle__form__field input{
+  height:32px;
+  outline:0;
+  padding-left: 15px;
+}
+.default__title{
+  width: 100%;
+  height:45px;
+  margin-top: 25px;
+}
+.default__title button{
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  font-size: 18px;
+  border: 0;
+  background-color:transparent;
+  cursor: pointer;
+  color: #999;
+}
+.default__title button:hover{
+background-color:#c2c2c23f;
+}
+.continue__btn{
+  margin-top: 25px;
+  width: 100%;
+  height: 50px;
+  border: 0;
+  background-color:#0359b6;
+  cursor: pointer;
+  color: #fff;
+  border-radius:65px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.job__seeker__section{
+  width: 100%;
+  margin: 0 auto;
+}
+.job__seeker__header{
+  width: 45%;
+  margin: 0 auto;
+}
+.job__seeker__header h1{
+  font-size: 25px;
+  text-align: center;
+}
+.job__seeker__header h2{
+  font-size: 14px;
+  text-align: center;
+  color: #999;
+  font-weight: 500;
+}
+.job__seeker__buttons{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top: 25px;
+}
+.job__seeker__buttons button{
+  width: 35%;
+  height:55px;
+  margin-bottom: 10px;
+  border: 1px solid #004992;
+  background-color: transparent;
+  border-radius:65px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+}
+.job__seeker__buttons button:hover{
+  background-color:#0682ff4f;
+}
+
+.job_seletion{
+  width: 65%;
+  margin :0 auto;
+}
+.job_selection__header{
+width: 100%;
+margin :0 auto;
+}
+.job_selection__header h1{
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+}
+.job__selection__from{
+  width: 45%;
+  margin: 25px auto;
+  display: flex;
+  align-items:flex-start;
+  flex-direction:column;
+}
+.job__selection__form__field{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items:flex-start;
+  
+}
+.job__selection__form__field label{
+  color: #00000099;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.job__selection__form__field input{
+  width: 98%;
+  height:32px;
+}
+.job__selection__from .next__btn{
+  width:100%;
+  margin: 25px auto;
+  height:45px;
+  border: 1px solid #999;
+  background-color: #0359b6;
+  border: 0;
+  outline:0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+.onboarding__profile__form{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.onboarding__field{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  position: relative;
+}
+.onboarding__field label{
+  color: #00000099;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.onboarding__field input{
+  height:32px;
+  outline:0;
+  padding-left: 15px;
+}
+.onboarding__profile__form button{
+  width: 100%;
+  height:48px;
+  margin-top: 10px;
+  background-color: #004992;
+  outline:0;
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+  font-size:18px;
+  border-radius: 65px;
+}
+.country__dropdowns{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  box-shadow: -1px -1px 10px rgba(0,0,0,0.115), 1px 1px 10px rgba(0,0,0,0.115);
+  border-radius:5px;
+  max-height:150px;
+  overflow-y: scroll;
+}
+.country__dropdowns span{
+  padding:10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+.country__dropdowns span:last-child{
+  border: 0;
+}
+
+.country__dropdowns span:hover{
+  background-color: rgba(204, 204, 204, 0.253);
+}
 @media screen and (max-width:1320px){
   .feed__body{
     width: 90%;

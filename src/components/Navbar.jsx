@@ -10,6 +10,7 @@ import { setUser,setDrop } from '../redux/actions/_appAction';
 import "./Navbar.css"
 import SearchIcon from '@material-ui/icons/Search';
 import { Link, useHistory } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 
 function DropDown ({props}){
@@ -21,12 +22,18 @@ function DropDown ({props}){
     const handleViewProfile = ()=>{
         history.push('/sumit-1234');
     }
+
+    const handleLogout = ()=>{
+        Cookies.remove("AUTH_TOKEN");
+        props.setUser(null);
+        history.push('/')
+    }
     return (
         <div className="navbar__dropdown">
       <div className="dropdown__header">
           <div className="drop__user__profile">
               <div className="user__drop__avatar">
-                  <img src={props.user && props.user.photo} alt="user__avatar"/>
+                  <img src={props.user && props.user.avatar} alt="user__avatar"/>
               </div>
               <div className="user__drop__textual">
                   <h3>{props.user && props.user.name}</h3>
@@ -58,7 +65,7 @@ function DropDown ({props}){
               </li>
           </ul>
           <div className="dropdown__logout">
-              <button>Signout</button>
+              <button onClick={handleLogout}>Signout</button>
           </div>
       </div>
   </div>
@@ -96,7 +103,7 @@ function Navbar(props) {
                         Notifications</Link>
                     <div className="nav__avatar" onClick={()=>props.setDrop(!props.drop)}>
                         <div className="avatar__nav">
-                            <img src={props.user && props.user.photo} alt="user__avatar" />
+                            <img src={props.user && props.user.avatar} alt="user__avatar" />
                         </div>
                         <span>Me <svg id="global-nav-icon--classic__down-arrow" width="16" height="16" data-supported-dps="16x16">
     <path d="M8.8 10.66L14 5.12a.07.07 0 00-.07-.12H2.07a.07.07 0 00-.07.12l5.2 5.54a1.1 1.1 0 001.6 0z"></path>

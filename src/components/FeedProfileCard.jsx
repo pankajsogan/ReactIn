@@ -12,7 +12,7 @@ function FeedProfileCard(props) {
             <div className="profile__card__header">
               <img src={`https://source.unsplash.com/random?${props.uset && props.user.position}`} alt="header__image" />
               <div className="profile_avatar">
-                  <img src={props.user && props.user.photo} alt="user__image" />
+                  <img src={props.user && props.user.avatar} alt="user__image" />
               </div>
              
             </div>

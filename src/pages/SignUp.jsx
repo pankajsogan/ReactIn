@@ -1,7 +1,28 @@
 import React from 'react'
 import GoogleLogin from 'react-google-login';
+import axios from 'axios';
+import Cookies from "js-cookie";
+import {useHistory} from "react-router-dom";
+import { connect } from 'react-redux';
+import { setLogin } from '../redux/actions/_appAction';
 
-function SignUp() {
+
+function SignUp(props) {
+
+const history = useHistory();
+   const handleGoogleSignup = async(email,name,avatar,id)=>{
+      
+
+      try{
+         const r =await axios.post(`https://enigmatic-dusk-99502.herokuapp.com/auth/reg/google`,{email,name,avatar,id});
+         return r.data;
+      }
+      catch(e){
+         if(e.response && e.response.data){
+            return e.response.data;
+         }
+      }
+   }
 
 
 
@@ -15,14 +36,21 @@ function SignUp() {
           console.log(response);
       }
 
-      // const {name,imageUrl,email} = response.profileObj;
+      const {name,imageUrl,email,googleId} = response.profileObj;
+      Cookies.set("GOOGLE_CRED",googleId)
+      handleGoogleSignup(email,name,imageUrl,googleId).then((data)=>{
+         console.log(data);
 
-      // setFullName(name);
-      // setAvatar(imageUrl);
-      // setEmail(email);
-      // checkSignUp().then((data)=>{
-      //     console.log(data);
-      // })
+         const {token} = data;
+         console.log(token)
+         Cookies.set("AUTH_TOKEN",token);
+         props.setLogin(true);
+         
+         history.push('/onboarding/start/profile-location/new/');
+      }).catch((err)=>{
+         console.error(err);
+      })
+      
 
 
       
@@ -94,4 +122,8 @@ function SignUp() {
    )
 }
 
-export default SignUp
+
+const mapDispatchToProps = (dispatch)=>({
+   setLogin:(login)=>(dispatch(setLogin(login)))
+})
+export default connect(null,mapDispatchToProps)(SignUp)

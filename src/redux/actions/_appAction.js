@@ -17,3 +17,8 @@ export const setActivePage = (activePage)=>({
     type:"SET_ACTIVE_PAGE",
     activePage
 })
+
+export const setLogin = (login)=>({
+    type:"SET_LOGIN",
+    login
+})

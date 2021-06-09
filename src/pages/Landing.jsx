@@ -2,14 +2,63 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import image from "../assets/logo.png";
-import { setActivePage } from "../redux/actions/_appAction";
+import { setActivePage, setLogin } from "../redux/actions/_appAction";
+import Cookies from "js-cookie";
+import axios from "axios";
+import {useHistory} from "react-router-dom";
+import GoogleLogin from "react-google-login";
 
 function Landing(props) {
-
+const history = useHistory();
         React.useEffect(() =>{
                 props.setActivePage("landing");
              },// eslint-disable-next-lines
 [props])
+
+const handleGoogleLogin = async(id)=>{
+      
+
+        try{
+           const r =await axios.post(`http://localhost:5000/auth/login/google`,{id});
+           return r.data;
+        }
+        catch(e){
+           if(e.response && e.response.data){
+              return e.response.data;
+           }
+        }
+     }
+
+
+
+const responseGoogle = (response) => {
+        if(response.error){
+           console.log(response)
+            return alert("Eroor");
+        }
+        else{
+            console.log("lOGIN WORKING");
+            console.log(response);
+        }
+  
+        const {googleId} = response.profileObj;
+        handleGoogleLogin(googleId).then((data)=>{
+           console.log(data);
+  
+           const {token} = data;
+           console.log(token)
+           Cookies.set("AUTH_TOKEN",token);
+           props.setLogin(true);
+           history.push('/feed');
+        }).catch((err)=>{
+           console.error(err);
+        })
+        
+  
+  
+        
+  
+      }
   return (
     <div className="landing__page">
       <nav aria-label="Landing__primary" className="landing__nav">
@@ -51,10 +100,22 @@ function Landing(props) {
                      <div className="auth__third__parties">
                              <div className="auth__divider"><span></span>or<span></span></div>
                              <div className="form__google__auth">
-                                     <div className="btn__google__login">
-                                     <img src="https://img.icons8.com/fluent/48/000000/google-logo.png" alt="Google__logo"/>
-                                     <span>Sign in with Google</span>
-                                     </div>
+                                     
+
+                                     <GoogleLogin
+    clientId="71393599305-7666vtmaen3dcqmjucdvt17r2k8suvgj.apps.googleusercontent.com"
+    buttonText="Login"
+    render={renderProps => (
+        <button className="btn__google__login" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+        <img src="https://img.icons8.com/fluent/48/000000/google-logo.png" alt="Google__logo"/>
+        <span>Sign in with Google</span>
+        </button>
+    
+      )}
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
                              </div>
                      </div>
                      </div>
@@ -66,7 +127,8 @@ function Landing(props) {
 
 
 const mapDispatchToProps = (dispatch)=>({
-        setActivePage:(activePage)=>(dispatch(setActivePage(activePage)))
+        setActivePage:(activePage)=>(dispatch(setActivePage(activePage))),
+        setLogin:(login)=>(dispatch(setLogin(login))),
     })
 
 export default connect(null,mapDispatchToProps)(Landing);

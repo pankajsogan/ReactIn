@@ -8,13 +8,19 @@ import axios from 'axios';
 import {connect} from 'react-redux'
 import { setUser } from './redux/actions/_appAction';
 import SignUp from './pages/SignUp';
+import Cookies from "js-cookie";
+import Onboarding from './pages/Onboarding';
 
 function App(props) {
 
   React.useEffect(()=>{
-    const getAvatar = async ()=>{
+    const getUser = async ()=>{
         try{
-                const r = await axios.get(`https://uifaces.co/api`,{headers:{'x-api-key':"B59CB176-D47D4418-9B4BBBF3-AF1010A5"}});
+                const r = await axios.get(`http://localhost:5000/auth/user`,
+                {headers:{
+                  "Authorization":"Bearer " +Cookies.get("AUTH_TOKEN"),
+                  "Content-Type":"application/json"
+              }});
                 return r.data;
         }
         catch(e){
@@ -24,10 +30,10 @@ function App(props) {
         }
     }
 
-  getAvatar().then((data) =>{
-      console.log(data);
-      const user = data[Math.floor(Math.random()*(0,data.length-1))];
-      
+    Cookies.get("AUTH_TOKEN") && getUser().then((data) =>{
+      console.log("Incoming user data",data);
+      // const user = data[Math.floor(Math.random()*(0,data.length-1))];
+      const {user} = data;
       props.setUser(user);
     })
 },
@@ -50,15 +56,21 @@ function App(props) {
     
     </Route>    
    
-    <Route  path="/signup">
+    <Route  exact path="/signup">
     <SignUp/>
     </Route>
 
 
-    <Route path="/:uid" render={(props) => {
+    <Route exact path="/:uid" render={(props) => {
    const uid = props.match.params.uid;
     return <Profile uid={uid} />
 }}  />
+
+<Route exact path="/onboarding/start/:type/new/" render={(props) => {
+   const type = props.match.params.type;
+    return <Onboarding type={type} />
+}}  />
+
     
   </Switch>
 </div>
@@ -66,7 +78,11 @@ function App(props) {
   );
 }
 
+const mapStateToProps = (state)=>({
+  isLogined: state.appReducer.isLogined
+})
+
 const mapDispatchToProps = (dispatch)=>({
   setUser:(user)=>(dispatch(setUser(user)))
 })
-export default connect(null,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

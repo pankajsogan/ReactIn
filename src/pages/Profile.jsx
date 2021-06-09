@@ -78,7 +78,7 @@ function Profile(props) {
                           </div>
                           <img src={`https://source.unsplash.com/random?${props.uset && props.user.position}`} alt="" className="profile__cover__image" />
                        <div className="profile__header_avatar">
-                          <img src={props.user && props.user.photo} alt="user__avatar" />
+                          <img src={props.user && props.user.avatar} alt="user__avatar" />
                        </div>
                        </div>
 
@@ -89,12 +89,12 @@ function Profile(props) {
                                 <h3>{props.user && props.user.name}</h3>
                                  <p>{props.user && props.user.position}</p>
                                 </div>
-                                 <span className="talks__about">Talks about #webdesign #react #webdeveloper and #webdevelopment</span>
-                                 <div className="user__city">Bengaluru,Karnatka,India <a href="/">Contact info</a></div>
+                                 {/* <span className="talks__about">Talks about #webdesign #react #webdeveloper and #webdevelopment</span> */}
+                                 <div className="user__city">{props.user && props.user.location} <a href="/">Contact info</a></div>
 
                                  <div className="user__foloowers__following">
-                                    <span><a href="/">209 followers</a></span>
-                                    <span><a href="/">211 connections</a></span>
+                                    <span><a href="/">{props.user && props.user.followers.length} followers</a></span>
+                                    <span><a href="/">{props.user && props.user.connetcions.length} connections</a></span>
                                  </div>
 
                                  <div className="profile__controls">

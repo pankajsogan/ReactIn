@@ -19,7 +19,7 @@ const handleGoogleLogin = async(id)=>{
       
 
         try{
-           const r =await axios.post(`http://localhost:5000/auth/login/google`,{id});
+           const r =await axios.post(`https://enigmatic-dusk-99502.herokuapp.com/auth/login/google`,{id});
            return r.data;
         }
         catch(e){

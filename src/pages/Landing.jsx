@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import image from "../assets/logo.png";
 import { setActivePage } from "../redux/actions/_appAction";
 
@@ -18,8 +19,8 @@ function Landing(props) {
         </a>
 
         <div className="nav__main__landing">
-          <a href="/">Join now</a>
-          <a href="/">Sign in</a>
+          <Link to="/signup">Join now</Link>
+          <Link to="/">Sign in</Link>
         </div>
       </nav>
       <main className="main__landing">

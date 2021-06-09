@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import { setUser } from './redux/actions/_appAction';
+import SignUp from './pages/SignUp';
 
 function App(props) {
 
@@ -48,8 +49,9 @@ function App(props) {
   <Feed/>
     
     </Route>    
-    <Route  path="/login">
-    <h1>Login Page</h1>
+   
+    <Route  path="/signup">
+    <SignUp/>
     </Route>
 
 

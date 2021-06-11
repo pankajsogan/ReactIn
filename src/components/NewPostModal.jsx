@@ -10,7 +10,6 @@ import "./NewPostModal.css"
 import { connect } from 'react-redux'
 import { setDrop, setModal, setUser } from '../redux/actions/_appAction';
 import axios from 'axios';
-import socketIOClient from "socket.io-client";
 
 function NewPostModal(props) {
 

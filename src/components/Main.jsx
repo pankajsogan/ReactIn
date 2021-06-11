@@ -4,7 +4,6 @@ import { setModal, setPost } from '../redux/actions/_appAction';
 import "./Main.css";
 import NewPostBox from './NewPostBox';
 import Post from './Post';
-import Pusher from 'pusher-js';
 
 function Main(props) {
 
@@ -57,6 +56,5 @@ const mapStateToProps = (state)=>({
 const mapDispatchToProps = (dispatch)=>({
     setModal:(modal)=>(dispatch(setModal(modal))),
     setPost:(post)=>(dispatch(setPost(post))),
-    setModal:(modal)=>(dispatch(setModal(modal)))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Main)

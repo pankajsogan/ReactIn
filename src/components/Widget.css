@@ -2,3 +2,9 @@
     width: 100%;
     grid-area: aside;
 }
+
+@media screen and (max-width:1320px){
+    .widgets{
+      display: none;
+    }
+  }

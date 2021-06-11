@@ -3,7 +3,8 @@ const intialState = {
     drop:false,
     modal:false,
     activePage:"home",
-    isLogined:false
+    isLogined:false,
+    posts:[]
 }
 
 const appReducer = (state=intialState,action)=>{
@@ -15,6 +16,16 @@ switch(action.type){
 
         }
 
+        case "SET_POST":
+            return{
+                ...state,
+                posts:[action.post,...state.posts]
+            }
+            case "SET_POSTS":
+                return{
+                    ...state,
+                    posts:action.posts
+                }
         case "SET_LOGIN":
         return{
             ...state,

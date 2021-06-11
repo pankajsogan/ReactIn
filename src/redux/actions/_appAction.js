@@ -22,3 +22,13 @@ export const setLogin = (login)=>({
     type:"SET_LOGIN",
     login
 })
+
+export const setPost = (post)=>({
+    type:"SET_POST",
+    post
+})
+
+export const setPosts=(posts)=>({
+    type:"SET_POSTS",
+    posts
+})

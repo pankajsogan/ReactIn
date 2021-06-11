@@ -9,22 +9,16 @@ import MoreVert from '../assets/MoreVert'
 import "./NewPostModal.css"
 import { connect } from 'react-redux'
 import { setDrop, setModal, setUser } from '../redux/actions/_appAction';
-import ContentEditable from 'react-contenteditable'
+import axios from 'axios';
+import socketIOClient from "socket.io-client";
 
 function NewPostModal(props) {
 
-    const [text,setText] = React.useState('<p>What do you want to talk about?</p>');
+    const [text,setText] = React.useState('');
 
-    const articleRef = React.createRef();
+    const [img,setImg] = React.useState('');
 
-    const handleAddHashtag = ()=>{
-            const article=document.querySelector('.editablePost');
-            const paras = article.querySelectorAll('p');
-            const lastPara=paras[paras.length-1];
-            lastPara.innerHTML+=`<strong>#</strong>`;
-    }
-
-
+    
     const handlePhoto = (e)=>{
         const file = e.target.files[0];
         const reader = new FileReader();
@@ -39,8 +33,8 @@ function NewPostModal(props) {
                 // convert image file to base64 string
                
                 console.log(reader.result);
-
-                document.querySelector('.editablePost').innerHTML+=`<img src="${reader.result}" alt="new_post_image"/>`;
+                setImg(reader.result);
+                document.querySelector('.new__post__image__container').innerHTML+=`<img src="${reader.result}" alt="new_post_image"/>`;
               }, false);
 
 
@@ -50,6 +44,19 @@ function NewPostModal(props) {
               }
         }
         console.log("Extension not matched")
+    }
+
+
+    const handlePostAdd =()=>{
+        try{
+            
+            const r = axios.post("https://enigmatic-dusk-99502.herokuapp.com/post",{upload_by:{user:props.user && props.user.name,uid:props.user && props.user.uid},upload_at:new Date().getTime(),text,img});
+            console.group(r.data);
+           
+        }
+        catch(e){
+            console.log(e);
+        }
     }
     return (
         <div className="newPostModal">
@@ -65,7 +72,7 @@ function NewPostModal(props) {
                 <div className="post__modal__body">
                     <div className="new__post_user__detail">
                         <div className="new__post__user__avatar">
-                            <img src={props.user && props.user.photo} alt="user__photo" />
+                            <img src={props.user && props.user.avatar} alt="user__photo" />
                         </div>
                         <div className="new__post__user__access">
                             <h3>{props.user && props.user.name}</h3>
@@ -82,19 +89,13 @@ function NewPostModal(props) {
                     </div>
 
                     <div className="post__text__data" aria-placeholder="What do you want to talk about?">
-                    <ContentEditable
-              innerRef={articleRef}
-              className="editablePost"
-              html={text} // innerHTML of the editable div
-              disabled={false}       // use true to disable editing
-              onChange={(e)=>setText(e.target.value)} // handle innerHTML change
-              tagName='p' // Use a custom HTML tag (uses a div by default)
-              
-            />
+                   <textarea className="new__post__text" placeholder="What do you want to talk about?" value={text} onChange={(e)=>setText(e.target.value)}></textarea>
+
+                   <div className="new__post__image__container">
+
+                   </div>
                     </div>
-                    <div className="post__hashtag" onClick={handleAddHashtag}>
-                        <button>Add hashtag</button>
-                    </div>
+                   
                 </div>
 
                 <div className="new__post__modal__footer">
@@ -112,7 +113,7 @@ function NewPostModal(props) {
                     </div>
                     <div className="new__post__add__controls">
                         <button>Anyone</button>
-                        <button>Post</button>
+                        <button disabled={!text && true} onClick={handlePostAdd}>Post</button>
                     </div>
                 </div>
             </div>

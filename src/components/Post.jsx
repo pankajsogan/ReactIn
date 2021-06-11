@@ -29,7 +29,7 @@ function SendIcon(){
  </svg>
 }
 
-function Post() {
+function Post({image,text}) {
 
 
    const [isReactions,setReactions] = React.useState(false);
@@ -60,11 +60,11 @@ function Post() {
          </div>
 
          <div className="post__textual__data">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur libero dolorem perferendis ab quasi quae dicta esse, nihil aliquam eos error natus, quo excepturi ipsam laboriosam nemo facere, blanditiis magnam!</p>
+            <p>{text}</p>
          </div>
 
          <div className="post__image__data">
-            <img src="https://source.unsplash.com/random" alt="user__post__image" />
+            <img src={image} alt="user__post__image" />
          </div>
          <div className="user__post__reactions">
             <div className="reaction__left">

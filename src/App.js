@@ -6,14 +6,23 @@ import Landing from './pages/Landing';
 import Profile from './pages/Profile';
 import axios from 'axios';
 import {connect} from 'react-redux'
-import { setUser } from './redux/actions/_appAction';
+import { setModal, setPost, setUser } from './redux/actions/_appAction';
 import SignUp from './pages/SignUp';
 import Cookies from "js-cookie";
 import Onboarding from './pages/Onboarding';
+import socketIOClient from "socket.io-client";
 
 function App(props) {
-
+  
   React.useEffect(()=>{
+    const socket = socketIOClient('http://localhost:5000',{ transports: ["websocket"] });
+    
+    socket.on("newPost", data => {
+      
+      console.log(data);
+      props.setPost(data.post && data.post);
+      props.setModal(false);
+    });
     const getUser = async ()=>{
         try{
                 const r = await axios.get(`https://enigmatic-dusk-99502.herokuapp.com/auth/user`,
@@ -83,6 +92,8 @@ const mapStateToProps = (state)=>({
 })
 
 const mapDispatchToProps = (dispatch)=>({
-  setUser:(user)=>(dispatch(setUser(user)))
+  setUser:(user)=>(dispatch(setUser(user))),
+  setPost:(post)=>(dispatch(setPost(post))),
+  setModal:(modal)=>(dispatch(setModal(modal)))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(App);

@@ -15,7 +15,7 @@ import socketIOClient from "socket.io-client";
 function App(props) {
   
   React.useEffect(()=>{
-    const socket = socketIOClient('http://localhost:5000',{ transports: ["websocket"] });
+    const socket = socketIOClient('https://enigmatic-dusk-99502.herokuapp.com',{ transports: ["websocket"] });
     
     socket.on("newPost", data => {
       

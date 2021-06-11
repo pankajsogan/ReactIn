@@ -13,11 +13,7 @@ function BlankPost() {
          <div className="post__body__header">
                <Skeleton width={48} height={48} circle={true}/>
            
-            <div className="post__top__header__info">
-               <Skeleton width={95} height={10}/>
-               <Skeleton width={95} height={10}/>
-               <Skeleton width={65} height={10}/>
-            </div>
+           
          </div>
 
          <div className="post__textual__data__blank">

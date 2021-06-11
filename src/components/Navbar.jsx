@@ -20,7 +20,7 @@ function DropDown ({props}){
     const history = useHistory();
 
     const handleViewProfile = ()=>{
-        history.push('/sumit-1234');
+        history.push(`/${props.user && props.user._id}`);
     }
 
     const handleLogout = ()=>{

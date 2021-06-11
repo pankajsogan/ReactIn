@@ -36,7 +36,7 @@ function Main(props) {
     return (
         <div className="main">
             <NewPostBox/>
-            <div className="user__posts">
+            <div className={`user__posts `}>
                {
                    props.posts.map((post)=>{
                        return <Post key={post._id} image={post.media.url} text={post.text} user={post.upload_by.user} upload_at={post.upload_at}/>

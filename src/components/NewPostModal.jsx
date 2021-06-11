@@ -112,7 +112,7 @@ function NewPostModal(props) {
                     </div>
                     <div className="new__post__add__controls">
                         <button>Anyone</button>
-                        <button disabled={!text && true} onClick={handlePostAdd}>Post</button>
+                        <button disabled={!text && !img && true} onClick={handlePostAdd} className={`${text && img && "btn__enable"}`}>Post</button>
                     </div>
                 </div>
             </div>

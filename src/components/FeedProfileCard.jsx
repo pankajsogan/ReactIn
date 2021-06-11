@@ -8,7 +8,7 @@ function FeedProfileCard(props) {
     
    
     return (
-        <Link to="/sumit-1234" style={{textDecoration:"none"}}><div className="feedProfileCard">
+        <Link to={`/${props.user && props.user._id}`} style={{textDecoration:"none"}}><div className="feedProfileCard">
             <div className="profile__card__header">
               <img src={`https://source.unsplash.com/random?${props.uset && props.user.position}`} alt="header__image" />
               <div className="profile_avatar">

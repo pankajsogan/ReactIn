@@ -49,7 +49,7 @@ function NewPostModal(props) {
     const handlePostAdd =()=>{
         try{
             
-            const r = axios.post("https://enigmatic-dusk-99502.herokuapp.com/post",{upload_by:{user:props.user && props.user.name,uid:props.user && props.user.uid},upload_at:new Date().getTime(),text,img});
+            const r = axios.post("https://enigmatic-dusk-99502.herokuapp.com/post",{upload_by:{user:{name:props.user && props.user.name,uid:props.user && props.user.uid,avatar:props.user && props.user.avatar}},upload_at:new Date().getTime(),text,img});
             console.group(r.data);
            
         }

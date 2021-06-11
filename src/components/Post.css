@@ -52,6 +52,12 @@
    border-radius:50%;
    margin-right: 10px;
 }
+.post__body__header__avatar img{
+   width: 100%;
+   border-radius: 50%;
+   height: 100%;
+   object-fit: cover;
+}
 .post__top__header__info{
    display: flex;
    flex-direction: column;

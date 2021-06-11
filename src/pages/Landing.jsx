@@ -45,6 +45,9 @@ const responseGoogle = (response) => {
         handleGoogleLogin(googleId).then((data)=>{
            console.log(data);
   
+           if(data.error){
+                   return alert(data.message);
+           }
            const {token} = data;
            console.log(token)
            Cookies.set("AUTH_TOKEN",token);

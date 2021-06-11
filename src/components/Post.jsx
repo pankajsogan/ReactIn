@@ -3,6 +3,8 @@ import "./Post.css"
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
 import ReactTimeAgo from 'react-time-ago'
+import { connect } from 'react-redux';
+import { postReaction } from '../redux/actions/_appAction';
 TimeAgo.addDefaultLocale(en)
 
 
@@ -32,11 +34,16 @@ function SendIcon(){
  </svg>
 }
 
-function Post({image,text,user,upload_at}) {
-
+function Post({image,text,user,upload_at,id,postReaction,reactions,comments,likes}) {
+console.log(reactions)
 
    const [isReactions,setReactions] = React.useState(false);
    const [reaction,setReaction] = React.useState(<><LikeIcon/> Like</>);
+
+   const handleReaction=(id,reaction)=>{
+      setReaction(reaction)
+      postReaction(id,reaction);
+   }
    return (
       <div className="post">
          <div className="post__header">
@@ -72,27 +79,31 @@ function Post({image,text,user,upload_at}) {
             <img src={image} alt="user__post__image" />
          </div>
          <div className="user__post__reactions">
-            <div className="reaction__left">
-            <img src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb" alt="like__reaction" />
-            <img src="https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f" alt="celebrate__reaction" />
-            <img src="https://static-exp1.licdn.com/sc/h/7fx9nkd7mx8avdpqm5hqcbi97" alt="heart__reaction" />
+            {/* <div className="reaction__left">
+               {
+                  reactions.map((react,i)=>{
+                     return <img src={react.props.children[0].props.src} alt="like__reaction" />
+                  })
+               }
+           
+            
             <a href="/">638</a>
-            </div>
+            </div> */}
            <div className="reaction__right">
-           <a href="/"><span className="comments__count">
+           {comments.length>0 && <a href="/"><span className="comments__count">
                213 comments
-            </span></a>
+            </span></a>}
            </div>
          </div>
          </div>
 
          <span className={`reaction__panel ${isReactions && "reaction__panel__enable"}`} onMouseLeave={()=>setReactions(false)}>
-            <span onClick={()=>setReaction(<><img src="https://static-exp1.licdn.com/sc/h/36xg5gxpnrq56ebbj1wla5x2n" alt="like__icon" /><span style={{color:"#0a66c2",fontWeight:"bold"}}>Like</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/36xg5gxpnrq56ebbj1wla5x2n" alt="like__reaction" /></span>
-            <span onClick={()=>setReaction(<><img src="https://static-exp1.licdn.com/sc/h/1zk00q5n4o055s08tjpy4rswf" alt="like__icon" /><span style={{color:"#44712e",fontWeight:"bold"}}>Celebrate</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/1zk00q5n4o055s08tjpy4rswf" alt="celebrate__icon" /></span>
-           <span onClick={()=>setReaction(<><img src="https://static-exp1.licdn.com/sc/h/6xvr3hrj4c24dak8r7z64pgj3" alt="like__icon" /><span style={{color:"#715e86",fontWeight:"bold"}}>Support</span></>)}> <div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/6xvr3hrj4c24dak8r7z64pgj3" alt="support__icon" /></span>
-            <span onClick={()=>setReaction(<><img src="https://static-exp1.licdn.com/sc/h/7rghal44zenlhabcjrr4ow7gk" alt="like__icon" /><span style={{color:"#b24020",fontWeight:"bold"}}>Love</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/7rghal44zenlhabcjrr4ow7gk" alt="love__reaction" /></span>
-            <span onClick={()=>setReaction(<><img src="https://static-exp1.licdn.com/sc/h/9wjxk9w5wguhpev3dm13672dq" alt="like__icon" /><span style={{color:"#915907",fontWeight:"bold"}}>Insightful</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/9wjxk9w5wguhpev3dm13672dq" alt="insight__reaction" /></span>
-            <span onClick={()=>setReaction(<><img src="https://static-exp1.licdn.com/sc/h/3tn3hb1r3nls9c4ddwbg2pymr" alt="like__icon" /><span style={{color:"#80597e",fontWeight:"bold"}}>Curious</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/3tn3hb1r3nls9c4ddwbg2pymr" alt="curious__reaction" /></span>
+            <span onClick={()=>handleReaction(id,<><img src="https://static-exp1.licdn.com/sc/h/36xg5gxpnrq56ebbj1wla5x2n" alt="like__icon" /><span style={{color:"#0a66c2",fontWeight:"bold"}}>Like</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/36xg5gxpnrq56ebbj1wla5x2n" alt="like__reaction" /></span>
+            <span onClick={()=>handleReaction(id,<><img src="https://static-exp1.licdn.com/sc/h/1zk00q5n4o055s08tjpy4rswf" alt="like__icon" /><span style={{color:"#44712e",fontWeight:"bold"}}>Celebrate</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/1zk00q5n4o055s08tjpy4rswf" alt="celebrate__icon" /></span>
+           <span onClick={()=>handleReaction(id,<><img src="https://static-exp1.licdn.com/sc/h/6xvr3hrj4c24dak8r7z64pgj3" alt="like__icon" /><span style={{color:"#715e86",fontWeight:"bold"}}>Support</span></>)}> <div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/6xvr3hrj4c24dak8r7z64pgj3" alt="support__icon" /></span>
+            <span onClick={()=>handleReaction(id,<><img src="https://static-exp1.licdn.com/sc/h/7rghal44zenlhabcjrr4ow7gk" alt="like__icon" /><span style={{color:"#b24020",fontWeight:"bold"}}>Love</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/7rghal44zenlhabcjrr4ow7gk" alt="love__reaction" /></span>
+            <span onClick={()=>handleReaction(id,<><img src="https://static-exp1.licdn.com/sc/h/9wjxk9w5wguhpev3dm13672dq" alt="like__icon" /><span style={{color:"#915907",fontWeight:"bold"}}>Insightful</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/9wjxk9w5wguhpev3dm13672dq" alt="insight__reaction" /></span>
+            <span onClick={()=>handleReaction(id,<><img src="https://static-exp1.licdn.com/sc/h/3tn3hb1r3nls9c4ddwbg2pymr" alt="like__icon" /><span style={{color:"#80597e",fontWeight:"bold"}}>Curious</span></>)}><div className="reaction__caption"></div><img src="https://static-exp1.licdn.com/sc/h/3tn3hb1r3nls9c4ddwbg2pymr" alt="curious__reaction" /></span>
          </span>
          <div className="post__footer">
             <button onMouseOver={()=>setReactions(true)}>{reaction}</button>
@@ -104,4 +115,7 @@ function Post({image,text,user,upload_at}) {
    )
 }
 
-export default Post
+const mapDispatchToProps = (dispatch)=>({
+   postReaction:(id,reaction)=>(dispatch(postReaction(id,reaction)))
+})
+export default connect(null,mapDispatchToProps)(Post)

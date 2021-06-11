@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setModal, setPost } from '../redux/actions/_appAction';
+import BlankPost from './BlankPost';
 import "./Main.css";
 import NewPostBox from './NewPostBox';
 import Post from './Post';
@@ -38,9 +39,15 @@ function Main(props) {
             <NewPostBox/>
             <div className={`user__posts `}>
                {
-                   props.posts.map((post)=>{
-                       return <Post key={post._id} image={post.media.url} text={post.text} user={post.upload_by.user} upload_at={post.upload_at}/>
+                   props.posts.length>0?props.posts.map((post)=>{
+                       return <Post key={post._id} image={post.media.url} text={post.text} user={post.upload_by.user} upload_at={post.upload_at} id={post._id} reactions={post.reactions} comments={post.comments} likes={post.likes}/>
                    })
+                   :<>
+                   <BlankPost/>
+                   <BlankPost/>
+                   <BlankPost/>
+                   <BlankPost/>
+                   </>
                }
             </div>
         </div>

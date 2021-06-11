@@ -149,7 +149,7 @@ All star
                         </div>
 
                         <div className="dashboard__cards">
-                           <DashBoardCard title="83" subtitle="Who viwed your profile"/>
+                           <DashBoardCard title={props.user && props.user.profileView.length} subtitle="Who viwed your profile"/>
                            <DashBoardCard title="13" subtitle="Video Views"/>
                            <DashBoardCard title="19" subtitle="Search appearances"/>
                         </div>

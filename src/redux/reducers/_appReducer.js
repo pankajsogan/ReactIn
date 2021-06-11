@@ -4,7 +4,8 @@ const intialState = {
     modal:false,
     activePage:"home",
     isLogined:false,
-    posts:[]
+    posts:[],
+    
 }
 
 const appReducer = (state=intialState,action)=>{
@@ -14,6 +15,16 @@ switch(action.type){
             ...state,
             user: action.user,
 
+        }
+
+        case "SET_REACTION":{
+            const index = state.posts.findIndex((post)=>post._id===action.id);
+            if(index>=0){
+                state.posts[index].reactions = [...state.posts[index].reactions,action.reaction];
+            }
+            return{
+                ...state
+            }
         }
 
         case "SET_POST":

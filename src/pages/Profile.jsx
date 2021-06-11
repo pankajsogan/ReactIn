@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import NetworkIcon from '../assets/Network';
 import Navbar from '../components/Navbar';
 import { setActivePage } from '../redux/actions/_appAction';
-import axios from 'axios';
+// import axios from 'axios';
 
 function QuestionIcon(){
    return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
@@ -56,20 +56,20 @@ function BookMarkIcon(){
 
 function Profile(props) {
 
-   React.useEffect(async () =>{
+   React.useEffect(() =>{
       props.setActivePage("profile");
 
       //update the user profile count
 
-      if(props.user && props.user._id!==props.uid){
-         try{
-            const r = await axios.put('http://localhost:5000/auth/update/profileCount',{uid:props.uid});
-            console.log(r.data);
-         }
-         catch(e){
-            console.log(e.message);
-         }
-      }
+      // if(props.user && props.user._id!==props.uid){
+      //    try{
+      //       const r = await axios.put('http://localhost:5000/auth/update/profileCount',{uid:props.uid});
+      //       console.log(r.data);
+      //    }
+      //    catch(e){
+      //       console.log(e.message);
+      //    }
+      // }
    },
    // eslint-disable-next-line
    [])
